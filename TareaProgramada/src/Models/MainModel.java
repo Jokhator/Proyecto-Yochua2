@@ -1,15 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package Model;
 
-package Models;
+import Vistas.AnimationFrame;
 
 /**
- * @authors Joshua Sancho M C17337, Luis Hodgson Q C13822, Marco Zumbado S C
- * @time 8:20:24 PM
- * @date May 29, 2022
+ * @author Marco Zumbado Solorzano carne C18736
+ * @date 2021-08-16
+ * @time 10:13:20
  */
-public class MainModel {
+public class mainModel {
 
+    AnimationFrame obj = new AnimationFrame();
+    Thread thread = new Thread(obj);
+
+    public void runAnimation() {
+        obj.setVisible(true);
+        thread.start();
+    }
+
+    public Thread getThread() {
+        return thread;
+    }
+    
+    
 }
