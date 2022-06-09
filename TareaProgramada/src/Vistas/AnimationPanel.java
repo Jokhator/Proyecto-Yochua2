@@ -63,16 +63,19 @@ public class AnimationPanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
-        for (int i = 0; i != 50; i++) {
-            g2d.drawImage(images.get(i), x.get(i), y.get(i), this);
+        for (int i = 0; i != images.size(); i++) {
+            if (images.get(i) != null) {
+                g2d.drawImage(images.get(i), x.get(i), y.get(i), this);
+            }
         }
     }
 
     public void animate() {
-        if (x.get(0) >= Panel_Width - images.get(0).getWidth(null) || x.get(0) < 0) {
-            xVelocity.set(0, xVelocity.get(0) * -1);
-        }
-        x.set(0, x.get(0) - xVelocity.get(0));
+//        
+//        if (x.get(0) >= Panel_Width - images.get(0).getWidth(null) || x.get(0) < 0) {
+//            xVelocity.set(0, xVelocity.get(0) * -1);
+//        }
+//        x.set(0, x.get(0) - xVelocity.get(0));
         try {
             main.controller.getMm().getThread().sleep(10);
         } catch (InterruptedException ex) {

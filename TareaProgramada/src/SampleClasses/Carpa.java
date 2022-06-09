@@ -23,9 +23,9 @@ public class Carpa implements Runnable {
     }
     
     public void run() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 49; i != -1; i--) {
             try {
-                main.controller.getMm().gettCarpa1().sleep(2000);
+                main.controller.getMm().gettCarpa1().sleep(500);
                 panel.vacunar(i);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Carpa.class.getName()).log(Level.SEVERE, null, ex);
