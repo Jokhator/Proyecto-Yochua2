@@ -5,6 +5,9 @@ package SampleClasses;
  * @time 8:13:20 PM
  * @date Jun 8, 2022
  */
-public class Carpa {
-
+public class Carpa implements Runnable{
+    
+    public void run(){
+        
+    }
 }
