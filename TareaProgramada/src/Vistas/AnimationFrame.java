@@ -8,7 +8,8 @@ import javax.swing.JFrame;
  * @time 10:13:20
 */
 public class AnimationFrame extends JFrame implements Runnable {
-    AnimationPanel panel;
+    
+    private AnimationPanel panel;
 
     public AnimationFrame() {
         panel = new AnimationPanel();
@@ -27,6 +28,9 @@ public class AnimationFrame extends JFrame implements Runnable {
             panel.animate();
         }
     }
-    
+
+    public AnimationPanel getPanel() {
+        return panel;
+    }
     
 }

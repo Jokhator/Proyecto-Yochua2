@@ -80,5 +80,9 @@ public class AnimationPanel extends JPanel {
         }
         repaint();
     }
+    
+    public void vacunar(int num){
+        images.remove(num);
+    }
 
 }
