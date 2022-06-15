@@ -31,7 +31,8 @@ public class AnimationFrame extends JFrame implements Runnable {
         synchronized (images) {
             while (images.size() < 50) {
                 images.add(new ImageIcon("cliente.jpg").getImage());
-
+                panel.animate();
+                images.notifyAll();
             }
         }
     }
