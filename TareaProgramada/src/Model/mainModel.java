@@ -1,7 +1,8 @@
 package Model;
 
 
-import SampleClasses.Carpa;
+import SampleClasses.Carpa1;
+import SampleClasses.Carpa2;
 import Vistas.AnimationFrame;
 
 /**
@@ -13,14 +14,18 @@ public class mainModel {
     
     
     AnimationFrame obj = new AnimationFrame();
-    Carpa carpa1 = new Carpa(obj);
+    Carpa1 carpa1 = new Carpa1(obj);
+    Carpa2 carpa2 = new Carpa2(obj);
+    
     Thread thread = new Thread(obj);
     Thread tCarpa1 = new Thread(carpa1);
+    Thread tCarpa2 = new Thread(carpa2);
 
     public void runAnimation() {
         obj.setVisible(true);
         thread.start();
         tCarpa1.start();
+        tCarpa2.start();
     }
 
     public Thread getThread() {

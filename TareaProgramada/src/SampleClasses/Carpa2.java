@@ -14,13 +14,13 @@ import prueba.main;
  * @time 8:13:20 PM
  * @date Jun 8, 2022
  */
-public class Carpa implements Runnable {
+public class Carpa2 implements Runnable {
 
     AnimationFrame frame;
     AnimationPanel panel;
     ArrayList<Image> images;
 
-    public Carpa(AnimationFrame frame) {
+    public Carpa2(AnimationFrame frame) {
         this.frame = frame;
         this.panel = frame.getPanel();
         this.images = panel.getImages();
@@ -29,14 +29,21 @@ public class Carpa implements Runnable {
     public void run() {
         synchronized (images) {
             int cantPacientes = 0;
-            while(images.size() < 51){
+            while (images.size() != 0) {
                 try {
-                    images.wait();
-                    panel.vacunar(cantPacientes);
+
+                    images.wait(3000);
+                    for (int i = 0; i < 3; i++) {
+                        if (cantPacientes <= images.size()) {
+                            panel.vacunar(cantPacientes);
+                            cantPacientes++;
+                        }
+                    }
+                    panel.animate();
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(Carpa.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Carpa2.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                cantPacientes ++;
+                cantPacientes++;
             }
         }
     }
