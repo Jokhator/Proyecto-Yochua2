@@ -1,5 +1,6 @@
 package SampleClasses;
 
+import Model.mainModel;
 import Vistas.AnimationFrame;
 import Vistas.AnimationPanel;
 import java.awt.Frame;
@@ -28,22 +29,22 @@ public class Carpa2 implements Runnable {
 
     public void run() {
         synchronized (images) {
-            int cantPacientes = 0;
             while (images.size() != 0) {
                 try {
 
                     images.wait(3000);
                     for (int i = 0; i < 3; i++) {
-                        if (cantPacientes <= images.size()) {
-                            panel.vacunar(cantPacientes);
-                            cantPacientes++;
+                        if (mainModel.cantPacientes <= images.size()-1) {
+                            panel.vacunar(mainModel.cantPacientes);
+                            mainModel.cantPacientes++;
+                        }else{
+                            mainModel.cantPacientes--;
                         }
                     }
                     panel.animate();
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Carpa2.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                cantPacientes++;
             }
         }
     }

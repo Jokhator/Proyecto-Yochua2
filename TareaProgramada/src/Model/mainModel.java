@@ -12,7 +12,7 @@ import Vistas.AnimationFrame;
  */
 public class mainModel {
     
-    
+    public static int cantPacientes = 0;
     AnimationFrame obj = new AnimationFrame();
     Carpa1 carpa1 = new Carpa1(obj);
     Carpa2 carpa2 = new Carpa2(obj);
