@@ -28,13 +28,15 @@ public class Carpa implements Runnable {
 
     public void run() {
         synchronized (images) {
-            for (int i = 49; i != -1; i--) {
+            int cantPacientes = 0;
+            while(images.size() < 51){
                 try {
                     images.wait();
-                    panel.vacunar(i);
+                    panel.vacunar(cantPacientes);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Carpa.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                cantPacientes ++;
             }
         }
     }

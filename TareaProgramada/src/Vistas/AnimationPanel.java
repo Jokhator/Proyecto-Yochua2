@@ -31,26 +31,25 @@ public class AnimationPanel extends JPanel {
         int posicionx = 100;
         int posiciony = 900;
         for (int i = 0; i != 50; i++) {
-            images.add(new ImageIcon("cliente" + i + ".jpg").getImage());
             x.add(posicionx);
             y.add(posiciony);
             xVelocity.add(1);
             yVelocity.add(1);
             posicionx += 100;
-            switch (images.size()) {
-                case 10:
+            switch (i) {
+                case 9:
                     posicionx = 100;
                     posiciony -= 100;
                     break;
-                case 20:
+                case 19:
                     posicionx = 100;
                     posiciony -= 100;
                     break;
-                case 30:
+                case 29:
                     posicionx = 100;
                     posiciony -= 100;
                     break;
-                case 40:
+                case 39:
                     posicionx = 100;
                     posiciony -= 100;
                     break;
