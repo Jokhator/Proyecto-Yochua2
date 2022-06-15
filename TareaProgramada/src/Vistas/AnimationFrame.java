@@ -1,15 +1,19 @@
 package Vistas;
 
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
  * @author Marco Zumbado Solorzano carne C18736
- * @date 2021-08-16 
+ * @date 2021-08-16
  * @time 10:13:20
-*/
+ */
 public class AnimationFrame extends JFrame implements Runnable {
-    
+
     private AnimationPanel panel;
+    ArrayList<Image> images;
 
     public AnimationFrame() {
         panel = new AnimationPanel();
@@ -19,18 +23,21 @@ public class AnimationFrame extends JFrame implements Runnable {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         panel.initialize();
+        this.images = panel.getImages();
     }
 
     @Override
     public void run() {
-        boolean x = true;
-        while (x == true) {            
-            panel.animate();
+        synchronized (images) {
+            while (images.size() < 50) {
+                images.add(new ImageIcon("cliente.jpg").getImage());
+
+            }
         }
     }
 
     public AnimationPanel getPanel() {
         return panel;
     }
-    
+
 }

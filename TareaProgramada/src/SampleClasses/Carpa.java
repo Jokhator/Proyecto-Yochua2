@@ -3,6 +3,8 @@ package SampleClasses;
 import Vistas.AnimationFrame;
 import Vistas.AnimationPanel;
 import java.awt.Frame;
+import java.awt.Image;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import prueba.main;
@@ -16,19 +18,23 @@ public class Carpa implements Runnable {
 
     AnimationFrame frame;
     AnimationPanel panel;
+    ArrayList<Image> images;
 
     public Carpa(AnimationFrame frame) {
         this.frame = frame;
         this.panel = frame.getPanel();
+        this.images = panel.getImages();
     }
-    
+
     public void run() {
-        for (int i = 49; i != -1; i--) {
-            try {
-                main.controller.getMm().gettCarpa1().sleep(500);
-                panel.vacunar(i);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Carpa.class.getName()).log(Level.SEVERE, null, ex);
+        synchronized (images) {
+            for (int i = 49; i != -1; i--) {
+                try {
+                    images.wait();
+                    panel.vacunar(i);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Carpa.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

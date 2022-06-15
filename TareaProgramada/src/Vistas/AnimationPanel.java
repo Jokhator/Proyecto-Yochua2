@@ -15,11 +15,11 @@ public class AnimationPanel extends JPanel {
 
     private final int Panel_Width = 1250;
     private final int Panel_Height = 1250;
-    private final ArrayList<Image> images = new ArrayList<>();
-    private final ArrayList<Integer> xVelocity = new ArrayList<>();
-    private final ArrayList<Integer> yVelocity = new ArrayList<>();
-    private final ArrayList<Integer> x = new ArrayList<>();
-    private final ArrayList<Integer> y = new ArrayList<>();
+    ArrayList<Image> images = new ArrayList<>();
+    ArrayList<Integer> xVelocity = new ArrayList<>();
+    ArrayList<Integer> yVelocity = new ArrayList<>();
+    ArrayList<Integer> x = new ArrayList<>();
+    ArrayList<Integer> y = new ArrayList<>();
 
     public AnimationPanel() {
         this.setPreferredSize(new Dimension(Panel_Width, Panel_Height));
@@ -83,9 +83,13 @@ public class AnimationPanel extends JPanel {
         }
         repaint();
     }
-    
-    public void vacunar(int num){
+
+    public void vacunar(int num) {
         images.remove(num);
     }
 
+    public ArrayList<Image> getImages() {
+        return images;
+    }
+    
 }
