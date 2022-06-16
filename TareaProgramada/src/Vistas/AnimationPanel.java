@@ -71,17 +71,13 @@ public class AnimationPanel extends JPanel {
         }
     }
 
-    public void animate() {
+    public void animate(int i) {
         
-        if (x.get(0) >= Panel_Width - images.get(0).getWidth(null) || x.get(0) < 0) {
-            xVelocity.set(0, xVelocity.get(0) * -1);
+        if (x.get(i) >= Panel_Width - images.get(i).getWidth(null) || x.get(i) < 0) {
+            xVelocity.set(i, xVelocity.get(i) * -1);
         }
-        x.set(0, x.get(0) - xVelocity.get(0));
-        try {
-            main.controller.getMm().getThread().sleep(10);
-        } catch (InterruptedException ex) {
-            System.err.println("Error");
-        }
+        x.set(0, x.get(i) - xVelocity.get(i));
+        
         repaint();
     }
 

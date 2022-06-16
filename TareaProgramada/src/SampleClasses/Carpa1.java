@@ -33,7 +33,6 @@ public class Carpa1 implements Runnable {
                 try {
                     images.wait(5000);
                     if (mainModel.cantPacientes <= images.size()) {
-                        
                         panel.vacunar(mainModel.cantPacientes);
                         mainModel.cantPacientes++;
                     }
