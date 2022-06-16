@@ -33,7 +33,6 @@ public class AnimationFrame extends JFrame implements Runnable {
                 images.add(new ImageIcon("cliente.png").getImage());
                 images.notifyAll();
                 panel.animate();
-
             }
         }
     }
