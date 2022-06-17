@@ -36,7 +36,10 @@ public class Carpa1 implements Runnable {
                     main.controller.getMm().setCantPacientesAnim(main.controller.getMm().getCantPacientesAnim() - 1);
                     if (cantPacientesAnim >= 0) {
                         for (int i = 0; i <= 2000; i++) {
-                            panel.animate(cantPacientesAnim, "carpa1");
+                            panel.animate(cantPacientesAnim, "carpa1");   
+                        }
+                        for (int i = 0; i < 1500; i++) {
+                            panel.salir(cantPacientesAnim, "carpa1");
                         }
                     } else{
                         System.exit(0);

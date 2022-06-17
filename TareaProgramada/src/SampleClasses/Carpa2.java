@@ -43,6 +43,12 @@ public class Carpa2 implements Runnable {
                         panel.animate(cantPacientesAnim3, "carpa2");
                     }
 
+                    for (int i = 0; i < 1500; i++) {
+                        panel.salir(cantPacientesAnim1, "carpa2");
+                        panel.salir(cantPacientesAnim2, "carpa2");
+                        panel.salir(cantPacientesAnim3, "carpa2");
+                    }
+
                     for (int i = 0; i < 3; i++) {
                         if (images.size() >= 3) {
                             if (mainModel.cantPacientes == images.size()) {
@@ -52,7 +58,7 @@ public class Carpa2 implements Runnable {
                             if (mainModel.cantPacientes != images.size()) {
                                 panel.vacunar(mainModel.cantPacientes);
                                 mainModel.cantPacientes++;
-                                
+
                             }
                         }
                     }

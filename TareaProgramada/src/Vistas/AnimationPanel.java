@@ -64,8 +64,9 @@ public class AnimationPanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(new ImageIcon("carpa.png").getImage(), 200, 100, this);
-        g2d.drawImage(new ImageIcon("carpa.png").getImage(), 750, 100, this);
+        g2d.drawImage(new ImageIcon("carpa1.png").getImage(), 200, 100, this);
+        g2d.drawImage(new ImageIcon("carpa2.png").getImage(), 750, 100, this);
+        g2d.drawImage(new ImageIcon("salida.png").getImage(), 1000, 100, this);
         for (int i = 0; i != images.size(); i++) {
             if (images.get(i) != null) {
                 g2d.drawImage(images.get(i), x.get(i), y.get(i), this);
@@ -108,6 +109,32 @@ public class AnimationPanel extends JPanel {
             }
             repaint();
         }
+    }
+
+    public void salir(int pac, String carpa) {
+
+        if (carpa.equals("carpa1")) {
+            if (x.get(pac) < 1250) {
+                x.set(pac, x.get(pac) + xVelocity.get(pac));
+            }
+            try {
+                main.controller.getMm().gettCarpa1().sleep(4);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            repaint();
+        }else{
+            if (x.get(pac) < 1250) {
+                x.set(pac, x.get(pac) + xVelocity.get(pac));
+            }
+            try {
+                main.controller.getMm().gettCarpa1().sleep(1);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            repaint();
+        }
+
     }
 
     public void vacunar(int num) {
