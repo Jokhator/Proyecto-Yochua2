@@ -38,7 +38,7 @@ public class Carpa2 implements Runnable {
                             mainModel.cantPacientes++;
                         }
                     }
-                    panel.animate();
+                    panel.animate(mainModel.cantPacientes);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Carpa2.class.getName()).log(Level.SEVERE, null, ex);
                 }

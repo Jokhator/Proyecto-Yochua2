@@ -32,7 +32,7 @@ public class AnimationFrame extends JFrame implements Runnable {
             while (images.size() != 50) {
                 images.add(new ImageIcon("cliente.png").getImage());
                 images.notifyAll();
-                panel.animate();
+                panel.redraw();
             }
         }
     }

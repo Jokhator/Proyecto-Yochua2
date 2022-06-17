@@ -78,6 +78,11 @@ public class AnimationPanel extends JPanel {
         }
         x.set(0, x.get(i) - xVelocity.get(i));
         
+        
+    }
+    
+    public void redraw(){
+        
         repaint();
     }
 
