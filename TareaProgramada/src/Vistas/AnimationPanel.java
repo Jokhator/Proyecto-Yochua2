@@ -256,7 +256,7 @@ public class AnimationPanel extends JPanel {
                 break;
             case 48:
                 x.set(48, x.get(48) - xVelocity.get(48));
-                y.set(48, y.get(48) - yVelocity.get(48));
+                y.set(48, y.get(48) - yVelocity.get(48)); 
                 try {
                     main.controller.getMm().gettCarpa2().sleep(4);
                 } catch (InterruptedException ex) {
