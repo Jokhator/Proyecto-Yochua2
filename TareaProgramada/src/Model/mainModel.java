@@ -1,6 +1,5 @@
 package Model;
 
-
 import SampleClasses.Carpa1;
 import SampleClasses.Carpa2;
 import Vistas.AnimationFrame;
@@ -11,12 +10,13 @@ import Vistas.AnimationFrame;
  * @time 10:13:20
  */
 public class mainModel {
-    
+
     public static int cantPacientes = 0;
+    public static int cantPacientesAnim = 49;
     AnimationFrame obj = new AnimationFrame();
     Carpa1 carpa1 = new Carpa1(obj);
     Carpa2 carpa2 = new Carpa2(obj);
-    
+
     Thread thread = new Thread(obj);
     Thread tCarpa1 = new Thread(carpa1);
     Thread tCarpa2 = new Thread(carpa2);
@@ -24,8 +24,6 @@ public class mainModel {
     public void runAnimation() {
         obj.setVisible(true);
         thread.start();
-        tCarpa1.start();
-        tCarpa2.start();
     }
 
     public Thread getThread() {
@@ -36,12 +34,12 @@ public class mainModel {
         return tCarpa1;
     }
 
+    public Thread gettCarpa2() {
+        return tCarpa2;
+    }
+
     public AnimationFrame getObj() {
         return obj;
     }
-    
 
-    
-    
-    
 }
