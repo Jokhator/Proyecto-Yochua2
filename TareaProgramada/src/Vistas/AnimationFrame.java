@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import prueba.main;
 
 /**
  * @author Marco Zumbado Solorzano carne C18736
@@ -34,6 +35,9 @@ public class AnimationFrame extends JFrame implements Runnable {
                 images.notifyAll();
                 panel.redraw();
             }
+            main.controller.getMm().gettCarpa1().start();
+            main.controller.getMm().gettCarpa2().start();
+            main.controller.getMm().getThread().stop();
         }
     }
 

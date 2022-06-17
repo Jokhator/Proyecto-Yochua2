@@ -29,15 +29,25 @@ public class Carpa1 implements Runnable {
 
     public void run() {
         synchronized (images) {
-            while (images.size() != 0) {
+            while (images.size() >= 1) {
                 try {
+                    for (int i = 0; i < 250; i++) {
+                        panel.animate(mainModel.cantPacientesAnim);
+                    }
                     images.wait(5000);
-                    if (mainModel.cantPacientes <= images.size()) {
+                    mainModel.cantPacientesAnim--;
+                    if (mainModel.cantPacientes == images.size()) {
+                        mainModel.cantPacientes--;
+                        mainModel.cantPacientes--;
+                    } else if (mainModel.cantPacientes == -1) {
+                        mainModel.cantPacientes += 1;
+                    }
+                    if (mainModel.cantPacientes <= images.size() && mainModel.cantPacientes >= 0) {
                         panel.vacunar(mainModel.cantPacientes);
                         mainModel.cantPacientes++;
+                    }else{
+                        mainModel.cantPacientes++;
                     }
-                    panel.animate(mainModel.cantPacientes);
-
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Carpa1.class.getName()).log(Level.SEVERE, null, ex);
                 }

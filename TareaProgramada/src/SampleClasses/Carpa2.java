@@ -29,16 +29,27 @@ public class Carpa2 implements Runnable {
 
     public void run() {
         synchronized (images) {
-            while (images.size() != 0) {
+            while (images.size() >= 3) {
                 try {
+//                    for (int i = 0; i <= 250; i++) {
+//                        panel.animate(mainModel.cantPacientesAnim, "carpa2");
+//                    }
                     images.wait(3000);
-                    for (int i = 0; i < 3; i++) {
-                        if (mainModel.cantPacientes <= images.size()){
-                            panel.vacunar(mainModel.cantPacientes);
-                            mainModel.cantPacientes++;
+                    mainModel.cantPacientesAnim--;
+                    mainModel.cantPacientesAnim--;
+                    mainModel.cantPacientesAnim--;
+                    for (int i = 0; i <= 3; i++) {
+                        if (images.size() >= 3) {
+                            if (mainModel.cantPacientes == images.size()) {
+                                mainModel.cantPacientes--;
+                                mainModel.cantPacientes--;
+                            }
+                            if (mainModel.cantPacientes != images.size()) {
+                                panel.vacunar(mainModel.cantPacientes);
+                                mainModel.cantPacientes++;
+                            }
                         }
                     }
-                    panel.animate(mainModel.cantPacientes);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Carpa2.class.getName()).log(Level.SEVERE, null, ex);
                 }
