@@ -73,218 +73,46 @@ public class AnimationPanel extends JPanel {
         }
     }
 
-    public void animate(int pac) {
-        switch (pac) {
-            case 0:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                redraw();
-                break;
-            case 1:
+    public void animate(int pac, String carpa) {
 
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
-            case 8:
-
-                break;
-            case 9:
-
-                break;
-            case 10:
-
-                break;
-            case 11:
-
-                break;
-            case 12:
-
-                break;
-            case 13:
-
-                break;
-            case 14:
-
-                break;
-            case 15:
-
-                break;
-            case 16:
-
-                break;
-            case 17:
-
-                break;
-            case 18:
-
-                break;
-            case 19:
-
-                break;
-            case 20:
-
-                break;
-            case 21:
-
-                break;
-            case 22:
-
-                break;
-            case 23:
-
-                break;
-            case 24:
-
-                break;
-            case 25:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 26:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 27:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 28:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 29:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 30:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 31:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 32:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 33:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 34:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 35:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 36:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 37:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 38:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 39:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 40:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 41:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 42:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 43:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 44:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 45:
-                x.set(0, x.get(0) - xVelocity.get(0));
-                y.set(0, y.get(0) - yVelocity.get(0));
-                break;
-            case 46:
-                x.set(46, x.get(46) - xVelocity.get(46));
-                y.set(46, y.get(46) - yVelocity.get(46));
-                try {
-                    main.controller.getMm().gettCarpa2().sleep(4);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
+        if (carpa.equals("carpa1")) {
+            if (x.get(pac) > 286) {
+                x.set(pac, x.get(pac) - xVelocity.get(pac));
+            } else if (x.get(pac) < 286) {
+                x.set(pac, x.get(pac) + xVelocity.get(pac));
+            } else if (x.get(pac) == 286) {
+                if (y.get(pac) != 228) {
+                    y.set(pac, y.get(pac) - yVelocity.get(pac));
                 }
-                break;
-            case 47:
-                x.set(47, x.get(47) - xVelocity.get(47));
-                y.set(47, y.get(47) - yVelocity.get(47));
-                try {
-                    main.controller.getMm().gettCarpa2().sleep(4);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                main.controller.getMm().gettCarpa1().sleep(4);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            repaint();
+        } else {
+            if (x.get(pac) > 835) {
+                x.set(pac, x.get(pac) - xVelocity.get(pac));
+            } else if (x.get(pac) < 835) {
+                x.set(pac, x.get(pac) + xVelocity.get(pac));
+            } else if (x.get(pac) == 835) {
+                if (y.get(pac) != 228) {
+                    y.set(pac, y.get(pac) - yVelocity.get(pac));
                 }
-                break;
-            case 48:
-                x.set(48, x.get(48) - xVelocity.get(48));
-                y.set(48, y.get(48) - yVelocity.get(48)); 
-                try {
-                    main.controller.getMm().gettCarpa2().sleep(4);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                break;
-            case 49:
-                x.set(49, x.get(49) - xVelocity.get(49));
-                y.set(49, y.get(49) - yVelocity.get(49));
-                try {
-                    main.controller.getMm().gettCarpa1().sleep(4);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                break;
-            default:
-                throw new AssertionError();
+            }
+            try {
+                main.controller.getMm().gettCarpa2().sleep(1);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            repaint();
         }
-        redraw();
-    }
-
-    public void redraw() {
-
-        repaint();
     }
 
     public void vacunar(int num) {
         images.remove(num);
+        repaint();
     }
 
     public ArrayList<Image> getImages() {

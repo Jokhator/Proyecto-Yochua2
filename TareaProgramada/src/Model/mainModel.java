@@ -12,7 +12,7 @@ import Vistas.AnimationFrame;
 public class mainModel {
 
     public static int cantPacientes = 0;
-    public static int cantPacientesAnim = 49;
+    private int cantPacientesAnim = 49;
     AnimationFrame obj = new AnimationFrame();
     Carpa1 carpa1 = new Carpa1(obj);
     Carpa2 carpa2 = new Carpa2(obj);
@@ -26,8 +26,16 @@ public class mainModel {
         thread.start();
     }
 
+    public void setCantPacientesAnim(int cantPacientesAnim) {
+        this.cantPacientesAnim = cantPacientesAnim;
+    }
+
     public Thread getThread() {
         return thread;
+    }
+
+    public int getCantPacientesAnim() {
+        return cantPacientesAnim;
     }
 
     public Thread gettCarpa1() {

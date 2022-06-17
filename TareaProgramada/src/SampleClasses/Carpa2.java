@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.ButtonType;
 import prueba.main;
 
 /**
@@ -31,14 +32,18 @@ public class Carpa2 implements Runnable {
         synchronized (images) {
             while (images.size() >= 3) {
                 try {
-//                    for (int i = 0; i <= 250; i++) {
-//                        panel.animate(mainModel.cantPacientesAnim, "carpa2");
-//                    }
-                    images.wait(3000);
-                    mainModel.cantPacientesAnim--;
-                    mainModel.cantPacientesAnim--;
-                    mainModel.cantPacientesAnim--;
-                    for (int i = 0; i <= 3; i++) {
+                    int cantPacientesAnim1 = main.controller.getMm().getCantPacientesAnim();
+                    int cantPacientesAnim2 = cantPacientesAnim1 - 1;
+                    int cantPacientesAnim3 = cantPacientesAnim2 - 1;
+                    main.controller.getMm().setCantPacientesAnim(main.controller.getMm().getCantPacientesAnim() - 3);
+
+                    for (int i = 0; i <= 2000; i++) {
+                        panel.animate(cantPacientesAnim1, "carpa2");
+                        panel.animate(cantPacientesAnim2, "carpa2");
+                        panel.animate(cantPacientesAnim3, "carpa2");
+                    }
+
+                    for (int i = 0; i < 3; i++) {
                         if (images.size() >= 3) {
                             if (mainModel.cantPacientes == images.size()) {
                                 mainModel.cantPacientes--;
@@ -47,9 +52,12 @@ public class Carpa2 implements Runnable {
                             if (mainModel.cantPacientes != images.size()) {
                                 panel.vacunar(mainModel.cantPacientes);
                                 mainModel.cantPacientes++;
+                                
                             }
                         }
                     }
+                    images.wait(3000);
+                    panel.repaint();
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Carpa2.class.getName()).log(Level.SEVERE, null, ex);
                 }
