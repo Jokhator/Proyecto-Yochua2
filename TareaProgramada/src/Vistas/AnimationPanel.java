@@ -9,12 +9,15 @@ import javax.swing.*;
 import prueba.main;
 
 /**
- * @author Marco Zumbado Solorzano carne C18736
+ * @author Marco Zumbado Solorzano C18736 Joshua Sancho Mora C17337 Luis Hodgson
+ * Quesada C17337
  * @date 2021-08-16
  * @time 10:13:20
  */
+//Clase vista del animationPanel.
 public class AnimationPanel extends JPanel {
 
+    //Size del panel y listas que van a ser usadas.
     private final int Panel_Width = 1250;
     private final int Panel_Height = 1250;
     ArrayList<Image> images = new ArrayList<>();
@@ -23,12 +26,14 @@ public class AnimationPanel extends JPanel {
     ArrayList<Integer> x = new ArrayList<>();
     ArrayList<Integer> y = new ArrayList<>();
 
+    //Constructor.
     public AnimationPanel() {
         this.setPreferredSize(new Dimension(Panel_Width, Panel_Height));
         this.setBackground(Color.BLACK);
 
     }
 
+    //Metodo para inicializar el panel.
     public void initialize() {
         int posicionx = 100;
         int posiciony = 900;
@@ -61,6 +66,7 @@ public class AnimationPanel extends JPanel {
         }
     }
 
+    //Metodo para "pintar" los pacientes en el panel.
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -74,6 +80,7 @@ public class AnimationPanel extends JPanel {
         }
     }
 
+    //Metodo para animar los pacientes hacia las carpas..
     public void animate(int pac, String carpa) {
 
         if (carpa.equals("carpa1")) {
@@ -111,6 +118,7 @@ public class AnimationPanel extends JPanel {
         }
     }
 
+    //Metodo para salir de la carpa.
     public void salir(int pac, String carpa) {
 
         if (carpa.equals("carpa1")) {
@@ -123,7 +131,7 @@ public class AnimationPanel extends JPanel {
                 Logger.getLogger(AnimationPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             repaint();
-        }else{
+        } else {
             if (x.get(pac) < 1250) {
                 x.set(pac, x.get(pac) + xVelocity.get(pac));
             }
@@ -137,11 +145,13 @@ public class AnimationPanel extends JPanel {
 
     }
 
+    //Metodo que vacuna al paciente, generando que se vaya para su casa.
     public void vacunar(int num) {
         images.remove(num);
         repaint();
     }
 
+    //Metodo para obtener las imagenes de los pacientes.
     public ArrayList<Image> getImages() {
         return images;
     }

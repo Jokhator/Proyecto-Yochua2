@@ -3,31 +3,34 @@ package SampleClasses;
 import Model.mainModel;
 import Vistas.AnimationFrame;
 import Vistas.AnimationPanel;
-import java.awt.Frame;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.ButtonType;
 import prueba.main;
 
 /**
- * @author Luis Edo. Hodgson C13822
- * @time 8:13:20 PM
- * @date Jun 8, 2022
+ * @author Marco Zumbado Solorzano C18736 Joshua Sancho Mora C17337 Luis Hodgson
+ * Quesada C17337
+ * @date 2021-08-16
+ * @time 10:13:20
  */
+//Sample class de la segunda carpa.
 public class Carpa2 implements Runnable {
 
+    //Se inicializan el frame, el panel y la lista con las imagenes de los pacientes.
     AnimationFrame frame;
     AnimationPanel panel;
     ArrayList<Image> images;
 
+    //Constructor.
     public Carpa2(AnimationFrame frame) {
         this.frame = frame;
         this.panel = frame.getPanel();
         this.images = panel.getImages();
     }
 
+    //Metodo main de la clase el cual anima a los pacientes hacia la segunda carpa.
     public void run() {
         synchronized (images) {
             while (images.size() >= 3) {
